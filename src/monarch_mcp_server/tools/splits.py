@@ -31,7 +31,7 @@ async def get_transaction_splits(transaction_id: str) -> str:
         return json_error("get_transaction_splits", e)
 
 
-@mcp.tool()
+# @mcp.tool()  # disabled: write op
 async def split_transaction(
     transaction_id: str,
     splits: List[Dict[str, Any]],

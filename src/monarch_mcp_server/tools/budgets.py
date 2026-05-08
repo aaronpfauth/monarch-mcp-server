@@ -33,7 +33,7 @@ async def get_budgets(
         return json_error("get_budgets", e)
 
 
-@mcp.tool()
+# @mcp.tool()  # disabled: write op
 async def set_budget_amount(
     amount: float,
     category_id: Optional[str] = None,

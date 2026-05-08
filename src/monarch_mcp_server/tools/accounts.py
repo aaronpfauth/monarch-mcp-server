@@ -124,7 +124,7 @@ async def get_account_balance_history(account_id: str) -> str:
         return json_error("get_account_balance_history", e)
 
 
-@mcp.tool()
+# @mcp.tool()  # disabled: write op
 async def upload_account_balance_history(
     account_id: str,
     corrections: str,

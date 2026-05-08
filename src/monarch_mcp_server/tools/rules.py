@@ -204,7 +204,7 @@ async def get_transaction_rules() -> str:
         return json_error("get_transaction_rules", e)
 
 
-@mcp.tool()
+# @mcp.tool()  # disabled: write op
 async def create_transaction_rule(
     merchant_criteria_operator: Optional[str] = None,
     merchant_criteria_value: Optional[str] = None,
@@ -299,7 +299,7 @@ async def create_transaction_rule(
         return json_error("create_transaction_rule", e)
 
 
-@mcp.tool()
+# @mcp.tool()  # disabled: write op
 async def update_transaction_rule(
     rule_id: str,
     merchant_criteria_operator: Optional[str] = None,
@@ -387,7 +387,7 @@ async def update_transaction_rule(
         return json_error("update_transaction_rule", e)
 
 
-@mcp.tool()
+# @mcp.tool()  # disabled: write op
 async def delete_transaction_rule(rule_id: str) -> str:
     """
     Delete a transaction rule.

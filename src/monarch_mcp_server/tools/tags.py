@@ -10,7 +10,7 @@ from monarch_mcp_server.helpers import json_success, json_error
 logger = logging.getLogger(__name__)
 
 
-@mcp.tool()
+# @mcp.tool()  # disabled: write op
 async def set_transaction_tags(
     transaction_id: str,
     tag_ids: List[str],
@@ -56,7 +56,7 @@ async def get_transaction_tags() -> str:
         return json_error("get_transaction_tags", e)
 
 
-@mcp.tool()
+# @mcp.tool()  # disabled: write op
 async def create_transaction_tag(name: str, color: str) -> str:
     """
     Create a new transaction tag.
@@ -73,7 +73,7 @@ async def create_transaction_tag(name: str, color: str) -> str:
         return json_error("create_transaction_tag", e)
 
 
-@mcp.tool()
+# @mcp.tool()  # disabled: write op
 async def add_transaction_tag(transaction_id: str, tag_id: str) -> str:
     """
     Add a tag to a transaction, preserving any tags already on it.
