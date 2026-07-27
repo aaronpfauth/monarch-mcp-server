@@ -56,7 +56,7 @@ async def get_transaction_tags() -> str:
         return json_error("get_transaction_tags", e)
 
 
-@mcp.tool()
+# @mcp.tool()  # disabled: footgun write op
 async def create_transaction_tag(name: str, color: str) -> str:
     """
     Create a new transaction tag.

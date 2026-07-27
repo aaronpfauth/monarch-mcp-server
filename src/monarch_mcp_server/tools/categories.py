@@ -51,7 +51,7 @@ async def get_transaction_category_groups() -> str:
         return json_error("get_transaction_category_groups", e)
 
 
-@mcp.tool()
+# @mcp.tool()  # disabled: footgun write op
 async def create_transaction_category(
     group_id: str,
     transaction_category_name: str,

@@ -622,7 +622,7 @@ async def get_transaction_details(transaction_id: str) -> str:
         return json_error("get_transaction_details", e)
 
 
-@mcp.tool()
+# @mcp.tool()  # disabled: footgun write op
 async def create_transaction(
     date: str,
     account_id: str,
@@ -872,7 +872,7 @@ async def bulk_categorize_transactions(
         return json_error("bulk_categorize_transactions", e)
 
 
-@mcp.tool()
+# @mcp.tool()  # disabled: footgun write op
 async def delete_transaction(transaction_id: str) -> str:
     """
     Delete a transaction from Monarch Money.
