@@ -168,7 +168,7 @@ async def get_merchant(merchant_id: str) -> str:
         return json_error("get_merchant", e)
 
 
-@mcp.tool()
+# @mcp.tool()  # disabled: footgun write op
 async def update_merchant(
     merchant_id: str,
     name: Optional[str] = None,
@@ -278,7 +278,7 @@ async def update_merchant(
         return json_error("update_merchant", e)
 
 
-@mcp.tool()
+# @mcp.tool()  # disabled: footgun write op
 async def review_recurring_stream(
     stream_id: str,
     review_status: str,

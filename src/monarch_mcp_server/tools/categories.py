@@ -213,7 +213,7 @@ _VALID_BUDGET_VARIABILITY = {"fixed", "flexible", "non_monthly"}
 _VALID_ROLLOVER_FREQUENCY = {"monthly", "variable"}
 
 
-@mcp.tool()
+# @mcp.tool()  # disabled: footgun write op
 async def update_category(
     category_id: str,
     name: Optional[str] = None,
