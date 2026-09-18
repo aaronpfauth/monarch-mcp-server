@@ -52,6 +52,10 @@ MUTATING_TOOLS: FrozenSet[str] = frozenset(
         # Goals
         "update_savings_goal",
         "set_goal_contribution",
+        # Fork-local batching layer (tools/extras.py). apply_categorization
+        # calls client.update_transaction, so read only mode must hide it.
+        # propose_categorization only stages in memory and is NOT listed.
+        "apply_categorization",
         # Merchants
         "update_merchant",
         "review_recurring_stream",

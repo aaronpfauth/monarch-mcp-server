@@ -99,6 +99,10 @@ from monarch_mcp_server.tools.merchants import (  # noqa: F401
     update_merchant,
     review_recurring_stream,
 )
+from monarch_mcp_server.tools.extras import (  # noqa: F401
+    propose_categorization,
+    apply_categorization,
+)
 
 if __name__ == "__main__":
     main()
