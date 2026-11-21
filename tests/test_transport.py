@@ -167,11 +167,12 @@ def test_http_initialize_list_and_call_tool(mock_monarch_client):
 @pytest.mark.parametrize(
     "headers,status",
     [
-        ({"Host": "evil.example"}, 421),
-        ({"Origin": "https://evil.example"}, 400),
-        ({"Origin": "null"}, 400),
-        ({"Origin": "http://localhost"}, 200),
-        ({"Host": "localhost"}, 200),
+        ({"Host": "evil.example"}, (421,)),
+        # A rejected Origin was 400 in older mcp releases and is 403 from 1.30 (as upstream's test allows).
+        ({"Origin": "https://evil.example"}, (400, 403)),
+        ({"Origin": "null"}, (400, 403)),
+        ({"Origin": "http://localhost"}, (200,)),
+        ({"Host": "localhost"}, (200,)),
     ],
 )
 def test_http_validates_host_and_origin(headers, status):
@@ -180,7 +181,7 @@ def test_http_validates_host_and_origin(headers, status):
         app.mcp.streamable_http_app(), base_url="http://localhost:8000"
     ) as client:
         response = client.post("/mcp", headers={**HEADERS, **headers}, json=INITIALIZE)
-        assert response.status_code == status
+        assert response.status_code in status
 
 
 def test_http_allows_configured_remote_host_and_origin():
